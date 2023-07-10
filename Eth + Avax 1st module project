@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
+
+contract ErrorHandling {
+   
+    uint num1=15;
+
+    function Assert(uint num) public pure{
+        assert(num!=0);
+    }
+
+    function multiply(uint _first, uint _second) public pure returns (uint){
+        if(_first&_second==0){
+           
+            revert("please provide numbers greater than 0");
+            
+        }
+        return _first*_second;
+       
+
+    }
+    function divide(uint num2) public view returns (uint){
+        require(num2!=0,"denominator is 0 , we dont want our result to be undefined");
+        return num1/num2;
+
+    }
+
+}
