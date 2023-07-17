@@ -1,42 +1,34 @@
-# ErrorHandling Contract
+This is a simple Solidity smart contract named ErrorHandlingExample, which demonstrates different error handling methods using require, assert, and revert. The contract allows setting and retrieving the value state variable while enforcing specific conditions to handle errors gracefully.
 
-This is a Solidity smart contract that demonstrates different error handling techniques using `assert`, `revert`, and `require` functions.
+Requirements
+Solidity version: ^0.8.17
+Functions
+setValueWithRequire
+solidity
+Copy code
+function setValueWithRequire(uint256 new_value) external
+This function sets the value state variable while ensuring that the new_value provided is greater than 0. If the condition fails, the function will revert the transaction with the custom error message "Value must greater than 0".
 
-## License
+getValueWithAssert
+solidity
+Copy code
+function getValueWithAssert() external returns (uint256)
+This function retrieves the current value stored in the contract's value state variable. Before returning the value, it uses assert to check that the value is not equal to zero. If the condition fails, the function will revert the transaction, indicating an internal error.
 
-This contract is using the MIT License.
+setValueWithRevert
+solidity
+Copy code
+function setValueWithRevert(uint256 new_value2) external
+This function sets the value state variable while ensuring that the new_value2 provided does not exceed 39. If the condition is not met, the function will revert the transaction with the custom error message "Value cannot exceed 100".
 
-## Prerequisites
+Events
+The contract emits two events:
 
-- Solidity ^0.8.17
+ValueSet: This event is emitted whenever the value state variable is successfully set. It includes the newValue as a parameter to indicate the new value assigned to value.
 
-## Contract Details
+ValueGot: This event is emitted when the getValueWithAssert function is called successfully and returns the current value.
 
-The `ErrorHandling` contract provides the following functions:
+License
+This smart contract is licensed under the MIT License. You are free to use, modify, and distribute it as per the terms of the license.
 
-### Assert(uint num)`
-
-- This function demonstrates the usage of the `assert` function.
-- It takes a `num` parameter and checks if it is not equal to zero using the `assert` statement.
-- If the condition fails, it triggers an "Internal error" and aborts the execution.
-
-### `multiply(uint _first, uint _second)`
-
-- This function demonstrates the usage of the `revert` function.
-- It takes `_first` and `_second` as parameters and performs multiplication.
-- It checks if the _first and _second parameters are 0 or not, if they're 0 it will revert the tx 
-- If the condition is met, it returns the result of the multiplication
-
-### `divide(uint num2)`
-
-- This function demonstrates the usage of the `require` function.
-- It takes a `num2` parameter and performs division with a predefined constant `b`.
-- It first checks if `num2` is greater than zero using the `require` statement.
-- If the condition fails, it reverts the transaction with a custom error message stating that the value of `num2` should not be zero as denominator should not be 0.
-- If the condition is met, it returns the result of the division.
-
-## Usage
-
-1. Make sure you have Solidity ^0.8.17 installed.
-2. Compile and deploy the `ErrorHandling` contract to a supported Ethereum network.
-3. Interact with the deployed contract by calling the available functions and providing the required parameters.
+Please note that this is a basic example for educational purposes. It is essential to thoroughly test and validate the smart contract before deploying it to a production environment.
