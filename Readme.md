@@ -36,7 +36,7 @@ The contract emits two events:
 
 ## Video Walkthrough
 
-- https://www.loom.com/share/5e2851d4b18d4d3d82554b0db02b9108
+-https://www.loom.com/share/eb656c400a7042c8980bb99c755b5140?sid=9112147f-8b95-4b65-95d8-25589d096e40
 
 
 
